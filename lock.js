@@ -52,7 +52,17 @@ function evaluateExpression(){
       clearTimeout(stageTimer);
       calcDisplay.textContent = "";
       // یه تاخیر کوچیک، بعد اپ واقعی باز می‌شه
-      setTimeout(()=> window.unlockRealApp(), 250);
+      setTimeout(()=>{
+        try{
+          if(typeof window.unlockRealApp !== "function"){
+            alert("خطای تشخیصی: unlockRealApp تعریف نشده");
+            return;
+          }
+          window.unlockRealApp();
+        } catch(err){
+          alert("خطای تشخیصی: " + err.message);
+        }
+      }, 250);
       return;
     }
     // رمز دوم اشتباه بود → همه‌چیز دوباره کاملاً قفل می‌شه (بدون هیچ نشونه‌ای)
