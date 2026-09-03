@@ -37,14 +37,9 @@ function evaluateExpression(){
   if(raw === SECRET_TRIGGER){
     calcDisplay.textContent = "";
     setTimeout(()=>{
-      if(typeof window.unlockRealApp !== "function"){
-        alert("خطای تشخیصی: unlockRealApp تعریف نشده (احتمالاً app.js لود نشده)");
-        return;
-      }
-      try{
+      document.getElementById("calc-screen").style.display = "none";
+      if(typeof window.unlockRealApp === "function"){
         window.unlockRealApp();
-      } catch(err){
-        alert("خطای تشخیصی: " + err.message);
       }
     }, 250);
     return;
@@ -62,6 +57,6 @@ function evaluateExpression(){
     calcDisplay.textContent = display;
   } catch(err){
     calcDisplay.textContent = "Error";
-    display = "";
+    display = "" ;
   }
 }
