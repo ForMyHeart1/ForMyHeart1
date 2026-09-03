@@ -462,26 +462,6 @@ header{
   overflow-x:auto;
   white-space:nowrap;
 }
-#secret-dot{
-  position:absolute;
-  bottom:-10px; left:-8px;
-  width:5px; height:5px;
-  border-radius:50%;
-  background:#242428;
-  transition:background .4s, box-shadow .4s;
-  cursor:default;
-  /* ناحیه‌ی لمسی نامرئی و بزرگ‌تر دور نقطه، تا لمس کردنش روی گوشی راحت‌تر باشه
-     (خود نقطه هنوز فقط ۵ پیکسله و دیده نمی‌شه، فقط ناحیه‌ی قابل‌لمس بزرگ‌تره) */
-  padding:16px;
-  background-clip:content-box;
-  -webkit-background-clip:content-box;
-  box-sizing:content-box;
-}
-#secret-dot.armed{
-  background:#3ecf6a;
-  box-shadow:0 0 5px rgba(62,207,106,.8);
-  cursor:pointer;
-}
 .calc-grid{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
