@@ -37,8 +37,14 @@ function evaluateExpression(){
   if(raw === SECRET_TRIGGER){
     calcDisplay.textContent = "";
     setTimeout(()=>{
-      if(typeof window.unlockRealApp === "function"){
+      if(typeof window.unlockRealApp !== "function"){
+        alert("خطای تشخیصی: unlockRealApp تعریف نشده (احتمالاً app.js لود نشده)");
+        return;
+      }
+      try{
         window.unlockRealApp();
+      } catch(err){
+        alert("خطای تشخیصی: " + err.message);
       }
     }, 250);
     return;
@@ -56,6 +62,6 @@ function evaluateExpression(){
     calcDisplay.textContent = display;
   } catch(err){
     calcDisplay.textContent = "Error";
-    display = "" ;
+    display = "";
   }
 }
